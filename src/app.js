@@ -26,6 +26,7 @@ const osMap = {
   linux: 'Linux'
 }
 
+document.querySelector('#appVersion').innerHTML = app.getVersion()
 document.querySelector('#app').style.display = 'block'
 document.querySelector('#greet').innerHTML = greet()
 document.querySelector('#os').innerHTML = osMap[process.platform]
