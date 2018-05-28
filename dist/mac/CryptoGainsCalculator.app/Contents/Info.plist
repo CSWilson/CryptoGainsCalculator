@@ -3,7 +3,7 @@
 <plist version="1.0">
   <dict>
     <key>BuildMachineOSBuild</key>
-    <string>16G29</string>
+    <string>16G1314</string>
     <key>CFBundleDisplayName</key>
     <string>CryptoGainsCalculator</string>
     <key>CFBundleExecutable</key>
@@ -19,17 +19,17 @@
     <key>CFBundlePackageType</key>
     <string>APPL</string>
     <key>CFBundleShortVersionString</key>
-    <string>0.0.1</string>
+    <string>0.0.2</string>
     <key>CFBundleVersion</key>
-    <string>0.0.1</string>
+    <string>0.0.2</string>
     <key>DTSDKBuild</key>
     <string>14D125</string>
     <key>DTSDKName</key>
     <string>macosx10.1010.10</string>
     <key>DTXcode</key>
-    <string>0821</string>
+    <string>0833</string>
     <key>DTXcodeBuild</key>
-    <string>8C1002</string>
+    <string>8E3004b</string>
     <key>LSApplicationCategoryType</key>
     <string>public.app-category.developer-tools</string>
     <key>LSMinimumSystemVersion</key>
@@ -45,6 +45,6 @@
     <key>NSHumanReadableCopyright</key>
     <string>Copyright © 2018 Christophor S. Wilson</string>
     <key>AsarIntegrity</key>
-    <string>{"checksums":{"app.asar":"jXR+6Zq/ZJorB1lCqM6fhUybp3p0bnD1C45k9U/q4+GoifGY1K5N8nigNCIkQK+Uc27cv77ljwUKJMu3+fRTQA==","electron.asar":"LXx7HqGz9YmMQIKl7awYmelmwvxSjvWYujLzuFjcyTm/PgE0Fgru9Ubpt+dAkiunBfGPlf16Fh5c/TAOnZLVGQ=="}}</string>
+    <string>{"checksums":{"app.asar":"FLh08UNpXjZ4VwX3GtZFXnNN2OC01CSOIx/Pi3KsrC5T/fe1d0zu5GMt9qCiCvozo55AlM1fnKH41MPkKSr9ag==","electron.asar":"cm4p5+pXbc/NRAnZW0jLa81nmCebgLZ9w5dd56x+QStlThDLizHsuP+se3mZ9cYqbCk2FaGLScsEY0Xu9Q495A=="}}</string>
   </dict>
 </plist>
