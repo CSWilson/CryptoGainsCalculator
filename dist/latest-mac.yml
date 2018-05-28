@@ -1,0 +1,10 @@
+version: 0.0.1
+files:
+  - url: crypto-gains-calculator-0.0.1-mac.zip
+    sha512: c5Ul3saQbYFqnV1rkMxw+em8DxtbYbVxHucIpr2rhTfv+pJAOlThtcxhjIOn3HPApKYWz2Mr4/HRWmDkHQXUqw==
+  - url: CryptoGainsCalculator-0.0.1.dmg
+    sha512: HLzjgXdZ9IVn4cYANn011U2ugZnKMW9P6ENX8g7a0yGvKTSfEaUkLs/TPmvym3T/+UJu3A5vfoSniBZfpUXBbg==
+    size: 48791765
+path: crypto-gains-calculator-0.0.1-mac.zip
+sha512: c5Ul3saQbYFqnV1rkMxw+em8DxtbYbVxHucIpr2rhTfv+pJAOlThtcxhjIOn3HPApKYWz2Mr4/HRWmDkHQXUqw==
+releaseDate: '2018-05-28T03:10:09.668Z'
