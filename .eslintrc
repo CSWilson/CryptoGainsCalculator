@@ -1,0 +1,25 @@
+{
+    "rules": {
+        "no-console": 0,
+        "indent": 2,
+        "quotes": [
+            2,
+            "single"
+        ],
+        "linebreak-style": [
+            2,
+            "unix"
+        ]
+    },
+    "plugins": [
+        "html"
+    ],
+    "env": {
+        "es6": true
+    },
+    "ecmaFeatures": {
+        "modules": true,
+        "experimentalObjectRestSpread": true
+    },
+    "extends": "standard"
+}
