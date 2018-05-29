@@ -10,4 +10,5 @@ publish:
   - provider: github
     owner: CSWilson
     repo: CryptoGainsCalculator
+    releaseType: release
 electronVersion: 2.0.2

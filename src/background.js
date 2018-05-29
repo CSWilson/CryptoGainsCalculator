@@ -36,7 +36,8 @@ app.on('ready', () => {
     width: 790,
     height: 390,
     minWidth: 790,
-    minHeight: 390
+    minHeight: 390,
+    titleBarStyle: 'hidden'
   })
 
   mainWindow.loadURL(
@@ -47,9 +48,9 @@ app.on('ready', () => {
     })
   )
 
-  if (env.name === 'development') {
-    mainWindow.openDevTools()
-  }
+  // if (env.name === 'development') {
+  //   mainWindow.openDevTools()
+  // }
 })
 
 app.on('window-all-closed', () => {

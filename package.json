@@ -2,14 +2,13 @@
   "name": "crypto-gains-calculator",
   "productName": "CryptoGainsCalculator",
   "description": "A simple to use cryptocurrency gains calculator.",
-  "version": "0.0.3",
+  "version": "0.0.9",
   "private": false,
   "license": "MIT",
-  "author": "Christophor S. Wilson <chris@cswapps.com>",
+  "author": "Chris Wilson <chris@cswapps.com>",
   "copyright": "© 2018, C.S. Wilson and Associates inc.",
   "homepage": "http://cswilson.org",
   "main": "app/background.js",
-  "repository": "https://bitbucket.org/CSWApps/cryptogainscalculator",
   "build": {
     "appId": "com.cswapps.crypto-gains-calculator",
     "files": [
@@ -24,21 +23,21 @@
       {
         "provider": "github",
         "owner": "CSWilson",
-        "repo": "CryptoGainsCalculator"
+        "repo": "CryptoGainsCalculator",
+        "releaseType": "release"
       }
     ]
   },
   "scripts": {
     "postinstall": "electron-builder install-app-deps",
-    "preunit": "webpack --config=build/webpack.unit.config.js --env=test --display=none",
+    "preunit": "webpack --mode production --config=build/webpack.unit.config.js --env=test --display=none",
     "unit": "electron-mocha temp/specs.js --renderer --require source-map-support/register",
-    "pree2e": "webpack --config=build/webpack.app.config.js --env=test --display=none && webpack --config=build/webpack.e2e.config.js --env=test --display=none",
+    "pree2e": "webpack --mode production --config=build/webpack.app.config.js --env=test --display=none && webpack --mode production --config=build/webpack.e2e.config.js --env=test --display=none",
     "e2e": "mocha temp/e2e.js --require source-map-support/register",
     "test": "npm run unit && npm run e2e",
     "start": "node build/start.js",
-    "release": "npm test && webpack --mode production --config=build/webpack.app.config.js --env=production && electron-builder",
     "build": "npm test && webpack --mode production --config=build/webpack.app.config.js --env=production && electron-builder",
-    "publish": "build --mac -p always"
+    "release": "build -p always"
   },
   "dependencies": {
     "accounting": "^0.4.1",
