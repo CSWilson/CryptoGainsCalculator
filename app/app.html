@@ -2,28 +2,83 @@
 <html>
 <head>
   <meta charset="utf-8">
-  <title>Electron Boilerplate</title>
+  <title>CryptoGainsCalculator</title>
+  <link rel="stylesheet" href="app.css">
 </head>
 <body style="-webkit-app-region: drag">
 
-  <div id="app" class="container" style="display: none;">
-    <h1 id="greet"></h1>
-    <p>
-      Welcome to <a href="http://electron.atom.io" class="js-external-link">Electron</a> app running on this <strong id="os"></strong> machine.
-    </p>
-    <p>
-      App author: <strong id="author"></strong>
-    </p>
-    <p>
-      Environment: <strong id="env"></strong>
-    </p>
-    <p>
-      Electron version: <strong id="electron-version"></strong>
-    </p>
-    </p>
-    <p>
-      App version: <strong id="appVersion"></strong>
-    </p>
+  <div id="app" class="container">
+
+      <transition name="fade"
+        leave-active-class="animated fadeOut">
+        <div class="pre-loader" v-if="isPreLoading">
+          <div id="hexagon-loader" class="center-element">
+            <span class="logo center-element">PRESTO</span>
+            <svg id="hexagon" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 129.78 150.37">
+              <path id="hexagon-base" d="M-1665.43,90.94V35.83a15.09,15.09,0,0,1,6.78-12.59l48.22-31.83a15.09,15.09,0,0,1,16-.38L-1547,19.13a15.09,15.09,0,0,1,7.39,13V90.94a15.09,15.09,0,0,1-7.21,12.87l-47.8,29.24a15.09,15.09,0,0,1-15.75,0l-47.8-29.24A15.09,15.09,0,0,1-1665.43,90.94Z" transform="translate(1667.43 13.09)"/>
+              <path id="hexagon-line-animation" d="M-1665.43,90.94V35.83a15.09,15.09,0,0,1,6.78-12.59l48.22-31.83a15.09,15.09,0,0,1,16-.38L-1547,19.13a15.09,15.09,0,0,1,7.39,13V90.94a15.09,15.09,0,0,1-7.21,12.87l-47.8,29.24a15.09,15.09,0,0,1-15.75,0l-47.8-29.24A15.09,15.09,0,0,1-1665.43,90.94Z" transform="translate(1667.43 13.09)"/>
+            </svg>
+          </div>
+        </div>
+      </transition>
+
+      <transition name="fade"
+        enter-active-class="animated fadeInDown"
+        leave-active-class="animated fadeOut">
+        <div v-if="objLength(coins) > 0">
+
+          <div class="form-group">
+            <div class="row">
+              <div class="col-sm-4">
+                <label>Initial Investment</label>
+                <div class="input-group">
+                  <div class="input-group-addon"><i class="fas fa-dollar-sign"></i></div>
+                  <input type="text" class="form-control" placeholder="Initial Investment" v-model="userData.investment" @blur="updateInvestment()" onfocus="this.select()" />
+                </div>
+              </div>
+              <div class="col-sm-4">
+                <label>Initial Coin Price</label>
+                <select v-model="userData.selectedCoin" @change="getCoinPrice($event.target.value)" class="form-control" style="border-radius:0 4px 4px 0 !important;" v-if="objLength(coins) > 0">
+                  <option v-for="coin in coins" :value="coin.Name" v-text="coin.FullName"></option>
+                </select>
+                <span v-else>Loading Coins...</span>
+              </div>
+              <div class="col-sm-4">
+                <label>Projected Coin Price</label>
+                <div class="input-group">
+                  <div class="input-group-addon"><i class="fas fa-dollar-sign"></i></div>
+                  <input type="number" class="form-control" placeholder="Total Coins" v-model="userData.projectedPrice" @keyup="updateProjectedPrice()" />
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="form-group loading" v-if="loadingCoins || loadingCoinPrice">
+            <i class="fas fa-spinner fa-pulse fa-2x"></i>
+          </div>
+          <div class="form-group" v-else-if="(initialPrice && userData.projectedPrice)">
+            <dl class="dl-horizontal">
+              <dt>Coin Price</dt><dd>{{ initialPrice | currency }}</dd>
+              <dt>Total Coins</dt><dd>{{ totalCoins }}</dd>
+              <template v-if="projectedTotal">
+                <dt>Projected Total</dt><dd>{{ projectedTotal | currency }}</dd>
+              </template>
+              <template v-if="projectedProfit">
+                <dt>Projected Profit</dt><dd>{{ projectedProfit | currency }}</dd>
+              </template>
+              <template v-if="afterFees">
+                <dt>After Fees</dt><dd>{{ afterFees | currency }}</dd>
+              </template>
+              <template v-if="afterTaxes">
+                <dt>After Taxes</dt><dd>{{ afterTaxes | currency }}</dd>
+              </template>
+            </dl>
+          </div>
+        </div>
+      </transition>
+
+      <div class="appVersion">
+        v{{ version }} &nbsp;&nbsp; <a href="#" title="Clear User Data" @click.prevent="clear"><i class="fa fa-trash"></i></a>
+      </div>
   </div>
 
   <script src="app.js"></script>

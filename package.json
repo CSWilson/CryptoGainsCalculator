@@ -2,7 +2,7 @@
   "name": "crypto-gains-calculator",
   "productName": "CryptoGainsCalculator",
   "description": "A simple to use cryptocurrency gains calculator.",
-  "version": "0.0.9",
+  "version": "0.0.10",
   "private": false,
   "license": "MIT",
   "author": "Chris Wilson <chris@cswapps.com>",
